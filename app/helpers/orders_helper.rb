@@ -13,7 +13,11 @@ module OrdersHelper
   end
 
   def render_order_state(order)
-    t("order.order_state#{order.aasm_state}")
+    t("#{order.aasm_state}")
+  end
+
+  def render_admin_order_link(order)
+    link_to(order.token, admin_order_path(order.token))
   end
 
 

@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
       @order.calculate_total!(current_cart)
       current_cart.clear!
       redirect_to order_path(@order.token)
+      OrderMailer.notify_order_placed(@order).deliver!
     else
       render "carts/index"
     end
@@ -23,11 +24,11 @@ class OrdersController < ApplicationController
 
   def pay_with_credit_card
     @order = current_user.orders.find_by_token(params[:id])
-    @order.set_payment_with!("credit_card")
+    # @order.set_payment_with!("credit_card")
 
-    @order.make_payment!
+    # @order.make_payment!
 
-    redirect_to account_orders_paht, :notice => "成功完成付款"
+    # redirect_to account_orders_path, :notice => "成功完成付款"
   end
  
   private

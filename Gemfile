@@ -7,6 +7,9 @@ gem 'rails', '4.1.0'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'letter_opener'
+  gem 'roadie'
+  gem 'annotate'
 end
 
 group :production do
@@ -42,7 +45,8 @@ gem "rmagick"
 gem "mini_magick"  # 取代鬧鬼的rmagick
 gem "simple_form", "~> 3.1.0.rc1"
 gem "aasm"
-
+gem "stripe"
+gem "ransack"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
