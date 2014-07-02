@@ -10,6 +10,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'roadie'
   gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

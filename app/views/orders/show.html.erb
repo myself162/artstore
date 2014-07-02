@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
    <div class="col-md-12">
 
     <h2> 訂單明細 </h2>
@@ -74,7 +74,8 @@
 
     <% else %>
 
-    此訂單已完成付款
+    <h2>此訂單已完成付款</h2>
+    <p><%= link_to("回首頁", products_path) %></p>
 
     <% end %>
 

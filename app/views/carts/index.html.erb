@@ -8,6 +8,7 @@
           <th class="col-md-2"> 商品名稱 </th>
           <th>單價</th>
           <th>  </th>
+          <th>  </th>
         </tr>
       </thead>
       <tbody>
@@ -18,14 +19,24 @@
             <%= link_to(item.product.title, admin_product_path(item.product)) %>
           </td>
           <td> <%= item.product.price %> </td>
+
+          <td>
+            <%= form_for item, :url => cart_item_path(item) do |f| %>
+              <%= f.select :quantity, [1,2,3,4,5] %>
+              <%= button_tag(type: 'submit', class: "btn btn-xs btn-default") do %>
+                <i class="glyphicon glyphicon-repeat"></i>
+              <% end %>
+            <% end %>
+          </td>
+
           <td> 
-            <%= link_to  cart_item_path(item), :method => :delete do %>
+            <%= link_to  cart_item_path(current_cart, item), :method => :delete do %>
             <i class="glyphicon glyphicon-trash"></i>
             <% end %>
           </td>
         </tr>
         <% end %> 
-        </tbody>
+      </tbody>
       </table>
       <div class="total group">
         <span class="pull-right">
