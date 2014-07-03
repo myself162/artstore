@@ -1,6 +1,5 @@
 <div class="container">
    <div class="col-md-12">
-
     <h2> 訂單明細 </h2>
 
     <table class="table table-bordered">
@@ -49,13 +48,13 @@
         </tr>
 
         <tr>
-          <td> 訂購人 </td>
+          <td> 收件人 </td>
 
         </tr>
 
         <tr>
           <td> 
-            <%= @order_info.billing_name %> - <%= @order_info.billing_address %>
+            <%= @order_info.shipping_name %> - <%= @order_info.shipping_address %>
           </td>
         </tr>
 

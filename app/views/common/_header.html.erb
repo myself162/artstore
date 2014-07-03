@@ -33,39 +33,7 @@
             購物車 <i class="glyphicon glyphicon-shopping-cart"> </i> ( <%=  cart_items_count(current_cart) %> )
             <% end %>
           </li>
-          <li class="dropdown nav-dropdown">
-            <% if current_user %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-              <%= "Hi, " + current_user.email %> 
-              <b class="caret"></b>
-            </a>
-          
-            <ul class="dropdown-menu nav-dropdown-menu">
-              <% if current_user.is_admin %>
-                <li> <%= link_to("Admin Panel", admin_products_path) %> </li>
-                <li> <%= link_to("訂單列表", admin_orders_path) %></li>
-                <li> <%= link_to("使用者列表", "#") %></li>
-              <% else %>
-                <li> <%= link_to("我的訂單", account_orders_path) %> </li>
-              <% end %>
-              <li class="divider"></li>
-              <% if current_user %>
-                <li> <%= link_to("Logout", destroy_user_session_path, :method => :delete) %> </li>
-              <% else %>
-                <li> <%= link_to("Sign Up", new_user_registration_path) %> </li>
-                <li> <%= link_to("Sign In", new_user_session_path) %> </li>
-              <% end %>
-
-              
-              <!--
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-              -->
-            </ul>
-            <% end %>
-          </li>
+            <%= render "common/navbar_dropdown_menu" %>
         </ul>
       </div>
     </div>

@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   before_action :authenticate_user!, :only => [:checkout]
+  before_action :login_required
  
   def index
   end

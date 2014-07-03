@@ -1,22 +1,29 @@
+<%= content_for :handwrite_javascript do %>
+<script>
+  $( "button.continue" ).html( "Next Step..." );
+</script>
+<% end %>
+
+
 <div class="container">
     <div class="show-photo img-thumbnail">
       <%= render_product_photo(@product, :medium) %>
   </div>
   <div class="show-div">
-    <p class="show-title"> <h1> <%= @product.title %> </h1> </p>
+    <p class="show-title"> <h1> <%= render_product_name(@product) %> </h1> </p>
     <hr>
-    <p class="show-description"> <%= @product.description %> </p>
+    <p class="show-description"> <%= render_product_desc(@product) %> </p>
     <hr>
-    <p class="show-quantity"> <%= "數量:" + @product.quantity.to_s %> </p>
+    <p class="show-quantity">  數量: <%= render_product_quantity(@product) %> </p>
     <hr>
-    <p class="show-price"> <%= "價錢:" + @product.price.to_s %> </p>
+    <p class="show-price"> 價錢: <%= render_product_price(@product) %> </p>
     <div class="pull-right">
       <% if @product.quantity > 0 %>
         <%= link_to("加入購物車", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-primary btn-lg btn-success") %>
       <% else %>
         <button type="button" class="btn btn-lg btn-success" disabled="disabled">此貨品售罄</button>
       <% end %>
-     </div>
+    </div>
 
   </div>
 </div>

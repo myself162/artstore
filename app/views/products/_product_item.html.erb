@@ -1,0 +1,20 @@
+<div class="container">
+  <% @products.each do |product| %>
+    <div class="index-div">
+      <p class="img-thumbnail">
+        <%= link_to product_path(product) do %>
+          <%= render_product_photo(product, :scale) %>
+        <% end %>
+      </p>   
+      <p class="index-product-name">
+        <%= render_product_name(product) %>
+        <br>
+        <% if product.quantity > 0 %>
+          <%= link_to("加入購物車", add_to_cart_product_path(product), :method => :post, :class => "btn btn-primary btn-xs btn-success") %>
+        <% else %>
+          <button type="button" class="btn btn-xs btn-success" disabled="disabled">此貨品售罄</button>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>
